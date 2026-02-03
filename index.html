@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number manipulator</title>
+  <style>
+    #input-form {
+      padding: 20px;
+    }
+    #input, #output-1 {
+      margin-top: 2px;
+      width: auto;
+      height: 100px;
+      font-size: 32px;
+      resize: both;
+      overflow: auto;
+      box-sizing: border-box;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    label {
+      margin-bottom: 5px;
+    }
+    select {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <label for="output-1">Select</label>
+    <select id="select-1">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="4">4</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="40">40</option>
+      <option value="41">41</option>
+      <option value="42">42</option>
+      <option value="46">46</option>
+      <option value="47">47</option>
+      <option value="61">61</option>
+      <option value="62">62</option>
+      <option value="64">64</option>
+      <option value="66">66</option>
+      <option value="67">67</option>
+      <option value="82">82</option>
+      <option value="84">84</option>
+      <option value="87">87</option>
+      <option value="124">124</option>
+      <option value="322">322</option>
+      <option value="441">441</option>
+      <option value="446">446</option>
+      <option value="447">447</option>
+      <option value="520">520</option>
+      <option value="526">526</option>
+      <option value="587">587</option>
+      <option value="602">602</option>
+      <option value="604">604</option>
+      <option value="620">620</option>
+      <option value="621">621</option>
+      <option value="624">624</option>
+      <option value="640">640</option>
+      <option value="646">646</option>
+      <option value="661">661</option>
+      <option value="664">664</option>
+      <option value="682">682</option>
+      <option value="684">684</option>
+      <option value="700">700</option>
+      <option value="3762">3,762</option>
+      <option value="3861">3,861</option>
+      <option value="5346">5,346</option>
+      <option value="5940">5,940</option>
+      <option value="7524">7,524</option>
+      <option value="7722">7,722</option>
+      <option value="7821">7,821</option>
+      <option value="7920">7,920</option>
+      <option value="9001">9,001</option>
+      <option value="9321">9,321</option>
+      <option value="9324">9,324</option>
+      <option value="9325">9,325</option>
+      <option value="9326">9,326</option>
+      <option value="9421">9,421</option>
+      <option value="9422">9,422</option>
+      <option value="9424">9,424</option>
+      <option value="9504">9,504</option>
+      <option value="9604">9,604</option>
+      <option value="9702">9,702</option>
+      <option value="9721">9,721</option>
+      <option value="9724">9,724</option>
+      <option value="9727">9,727</option>
+      <option value="9747">9,747</option>
+      <option value="9767">9,767</option>
+      <option value="9787">9,787</option>
+      <option value="9801">9,801</option>
+      <option value="9802">9,802</option>
+      <option value="9804">9,804</option>
+      <option value="9820">9,820</option>
+      <option value="9822">9,822</option>
+      <option value="9825">9,825</option>
+      <option value="9826">9,826</option>
+      <option value="9844">9,844</option>
+      <option value="9846">9,846</option>
+      <option value="9847">9,847</option>
+      <option value="9860">9,860</option>
+      <option value="9886">9,886</option>
+      <option value="9901">9,901</option>
+      <option value="9902">9,902</option>
+      <option value="9904">9,904</option>
+      <option value="9920">9,920</option>
+      <option value="9921">9,921</option>
+      <option value="9922">9,922</option>
+      <option value="9924">9,924</option>
+      <option value="9940">9,940</option>
+      <option value="9946">9,946</option>
+      <option value="9961">9,961</option>
+      <option value="999321">999,321</option>
+      <option value="999326">999,326</option>
+      <option value="999424">999,424</option>
+      <option value="999721">999,721</option>
+      <option value="999724">999,724</option>
+      <option value="999727">999,727</option>
+      <option value="999747">999,747</option>
+      <option value="999767">999,767</option>
+      <option value="999787">999,787</option>
+      <option value="999820">999,820</option>
+      <option value="999821">999,821</option>
+      <option value="999822">999,822</option>
+      <option value="999824">999,824</option>
+      <option value="999825">999,825</option>
+      <option value="999826">999,826</option>
+      <option value="999844">999,844</option>
+      <option value="999847">999,847</option>
+      <option value="999860">999,860</option>
+      <option value="999886">999,886</option>
+      <!-- Add your options here -->
+    </select>
+    <textarea id="output-1"></textarea>
+    <p><i>x</i> represents the number selected in the drop-down menu</p>
+  </div>
+  <div>
+    <label for="input">Enter text with number(s):</label>
+    <textarea id="input"></textarea>
+  </div>
+  <script>
+    let input = document.getElementById("input");
+    let select1 = document.getElementById("select-1");
+    let output1 = document.getElementById("output-1");
+    
+    function updateOutput() {
+      let inputText = input.value;
+      let select1Num = parseInt(select1.value.replace(/,/g, '')); // Remove commas before parsing
+      
+      if (!isNaN(select1Num)) {
+        let outputText = inputText.replace(/\b(\d{1,3}(,\d{3})*|\d+)\b/g, match => {
+          // Parse the matched number, remove commas, and add select1Num
+          let parsedNumber = parseInt(match.replace(/,/g, ''));
+          let resultingNumber = parsedNumber + select1Num;
+          return `(${resultingNumber.toLocaleString()} - x)`; // Add commas back to resulting number
+        });
+        output1.value = outputText + "\n\nx = " + select1Num.toLocaleString();
+      } else {
+        output1.value = inputText;
+      }
+    }
+    
+    input.addEventListener("input", updateOutput);
+    select1.addEventListener("change", updateOutput);
+  </script>
+</body>
+</html>
