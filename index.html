@@ -210,9 +210,9 @@
           // Parse the matched number, remove commas, and add select1Num
           let parsedNumber = parseInt(match.replace(/,/g, ''));
           let resultingNumber = parsedNumber + select1Num;
-          return `(${resultingNumber.toLocaleString()} - x)`; // Add commas back to resulting number
+          return `(${resultingNumber.toLocaleString()} - <i>x</i>)`; // Add commas back to resulting number
         });
-        output1.value = outputText + "\n\nx = " + select1Num.toLocaleString();
+        output1.value = outputText + "\n\n<i>x</i> = " + select1Num.toLocaleString();
       } else {
         output1.value = inputText;
       }
